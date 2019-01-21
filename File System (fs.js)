@@ -1,0 +1,66 @@
+file name: fs.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Program:
+
+const fs = require('fs');
+
+//synchronus method
+const files = fs.readdirSync('./');
+console.log(files);
+
+//Asynchronous method 
+
+//on Result 
+var file = fs.readdir('./', function (err, file) {
+    if (err) console.log('error:', err);
+    else console.log('result:', file);
+});
+console.log(file);
+
+//on Error
+var file = fs.readdir('$', function (err, file) {
+    if (err) console.log('error:', err);
+    else console.log('result:', file);
+});
+console.log(file);
+___________________________________________________________________________________________________________________________________________
+CMD:
+node fs.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Output on CMD:
+
+//synchronous method
+[ '.vs',
+'app.js',
+  'basic.js',
+  'BasicWrapper.js',
+  'fs.js',
+  'logger.js',
+  'module.js',
+  'os.js',
+  'package-lock.json',
+  'PathParser.js' ]
+undefined
+undefined
+
+//Asynchronous method
+
+//on Result
+result: [ '.vs',
+  'app.js',
+  'basic.js',
+  'BasicWrapper.js',
+  'fs.js',
+  'logger.js',
+  'module.js',
+  'os.js',
+  'package-lock.json',
+  'PathParser.js' ]
+
+//on Error
+error: { [Error: ENOENT: no such file or directory, scandir 'C:\Users\Family\first-app\First and Second Section\$']
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: 'C:\\Users\\Family\\first-app\\First and Second Section\\$' }
+___________________________________________________________________________________________________________________________________________
