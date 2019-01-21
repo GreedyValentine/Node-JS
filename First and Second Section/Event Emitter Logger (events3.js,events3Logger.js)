@@ -1,0 +1,37 @@
+file name: events3.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Program:
+
+const EventEmitter = require('events');
+
+const Logger = require('./events3Logger.js');
+const logger = new Logger();
+
+logger.addListener('MessageLogged', (arg) => {
+  console.log('Listener called', arg);
+ });
+ 
+ logger.log('Hey Valentine');
+___________________________________________________________________________________________________________________________________________
+file name: events3Logger.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Program:
+
+const EventEmitter = require('events');
+
+class Logger extends EventEmitter{
+  function log(message){
+    console.log(message);
+    this.emit('MessageLogged', {id: 2, url: 'https://www.google.com'});
+  }
+}
+
+module.exports = Logger;
+___________________________________________________________________________________________________________________________________________
+CMD:
+node events3.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Output on CMD:
+Hey Valentine 
+Listener called {id: 2, url: 'https://www.google.com'}
+___________________________________________________________________________________________________________________________________________
