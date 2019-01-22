@@ -1,19 +1,19 @@
-file name: events3.js
+file name: eventsLog.js
 -------------------------------------------------------------------------------------------------------------------------------------------
 Program:
 
 const EventEmitter = require('events');
 
-const Logger = require('./events3Logger.js');
+const Logger = require('./eventsLogger');
 const logger = new Logger();
 
-logger.addListener('MessageLogged', (arg) => {
-  console.log('Listener called', arg);
+logger.addListener('MessageLogged', (e) => {
+  console.log('Listener called', e);
  });
  
  logger.log('Hey Valentine');
 ___________________________________________________________________________________________________________________________________________
-file name: events3Logger.js
+file name: eventsLogger.js
 -------------------------------------------------------------------------------------------------------------------------------------------
 Program:
 
@@ -29,7 +29,7 @@ class Logger extends EventEmitter{
 module.exports = Logger;
 ___________________________________________________________________________________________________________________________________________
 CMD:
-node events3.js
+node eventsLog.js
 -------------------------------------------------------------------------------------------------------------------------------------------
 Output on CMD:
 Hey Valentine 
