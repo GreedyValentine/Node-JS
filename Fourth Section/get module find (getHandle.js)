@@ -1,0 +1,51 @@
+file name: getHandle.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Program:
+
+const express = require('express');
+const app = express();
+
+let courses = [
+    {id: 1, name: 'akshay', alias: 'valentine'},
+    {id: 2, name: 'vibhor', alias: 'beast'},
+    {id: 3, name: 'suraj', alias: 'voldemort'}
+]
+
+app.get('/', (req,res) => {
+    res.send('Hello Akshay');
+});
+
+app.get('/api/courses', (req,res) => {
+    res.send(courses);
+});
+
+app.get('/api/courses/:name', (req,res) => {
+    let course = courses.find((c) => c.name === req.params.name);
+    if(!course) res.status(404).send('The course with the given name was not found.');
+    res.send(course);
+});
+
+app.listen(3000, () => console.log('Listening on port 3000...'));
+___________________________________________________________________________________________________________________________________________
+CMD:
+node getHandle.js
+-------------------------------------------------------------------------------------------------------------------------------------------
+Output on Browser: localhost:3000
+
+//on 'localhost:3000'
+Hello Akshay
+
+// on 'localhost:3000/api/courses'
+[{id: 1, name: 'akshay', alias: 'valentine'}, {id: 2, name: 'vibhor', alias: 'beast'}, {id: 3, name: 'suraj', alias: 'voldemort'}
+
+// on 'localhost:3000/api/courses/akshay'
+{id: 1, name: 'akshay', alias: 'valentine'}
+
+// on 'localhost:3000/api/courses/vibhor'
+{id: 2, name: 'vibhor', alias: 'beast'}
+
+// on 'localhost:3000/api/courses/suraj'
+{id: 3, name: 'suraj', alias: 'voldemort'}
+
+// on 'localhost:3000/api/courses/amit'
+The course with the given name was not found.
