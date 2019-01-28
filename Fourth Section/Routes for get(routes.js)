@@ -1,0 +1,42 @@
+file name: routes.js
+-----------------------------------------------------------------------------------------------------------------------------------------
+Program:
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req,res) => {
+    res.send('Hello World!!!');
+});
+
+app.get('/api/courses', (req,res) => {
+    res.send([1,2,3]);
+});
+
+app.get('/api/courses/:id', (req,res) => {
+    res.send(req.params.id); 
+});
+
+app.listen(3000, () => console.log(`Listening on port 3000....`));
+_________________________________________________________________________________________________________________________________________
+CMD:
+node routes.js
+-----------------------------------------------------------------------------------------------------------------------------------------
+Output on Browser: localhost:3000
+
+//on 'localhost:3000'
+Hello World!!!
+
+//on 'localhost:3000/api/courses'
+[1,2,3]
+
+//on localhost:3000/api/courses/1'
+1
+
+//on localhost:3000/api/courses/2'
+2
+
+//on localhost:3000/api/courses/3'
+3
+_________________________________________________________________________________________________________________________________________
+
