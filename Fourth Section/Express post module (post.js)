@@ -61,7 +61,7 @@ Step 3: Check raw and give the input to 'JSON'.
 Step 4: Enter the url 'http://localhost:3000/api/courses'
 Step 5: In the input field 
 {
-  "name":"suraj
+  "name":"suraj"
 }
 Step 6: Click 'Send'
 Step 7: In the Output field
