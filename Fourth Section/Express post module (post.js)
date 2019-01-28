@@ -58,12 +58,13 @@ Post Man Process:
 Step 1: Select Post method. 
 Step 2: Go to Body.
 Step 3: Check raw and give the input to 'JSON'.
-Step 4: In the input field 
+Step 4: Enter the url 'http://localhost:3000/api/courses'
+Step 5: In the input field 
 {
   "name":"suraj
 }
-Step 5: Click 'Send'
-Step 6: In the Output field
+Step 6: Click 'Send'
+Step 7: In the Output field
 {
   "id":3
   "name":suraj
